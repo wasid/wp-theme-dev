@@ -1,0 +1,6 @@
+[31-Jul-2017 08:03:59 UTC] WordPress database error Duplicate key name 'meta_key' for query ALTER TABLE wp_usermeta ADD KEY meta_key (meta_key) made by wp_upgrade, make_db_current_silent, dbDelta
+[31-Jul-2017 08:03:59 UTC] WordPress database error Specified key was too long; max key length is 767 bytes for query ALTER TABLE wp_terms ADD UNIQUE KEY slug (slug) made by wp_upgrade, make_db_current_silent, dbDelta
+[31-Jul-2017 08:03:59 UTC] WordPress database error Duplicate key name 'name' for query ALTER TABLE wp_terms ADD KEY name (name) made by wp_upgrade, make_db_current_silent, dbDelta
+[31-Jul-2017 08:03:59 UTC] WordPress database error Duplicate key name 'meta_key' for query ALTER TABLE wp_commentmeta ADD KEY meta_key (meta_key) made by wp_upgrade, make_db_current_silent, dbDelta
+[31-Jul-2017 08:03:59 UTC] WordPress database error Duplicate key name 'meta_key' for query ALTER TABLE wp_postmeta ADD KEY meta_key (meta_key) made by wp_upgrade, make_db_current_silent, dbDelta
+[31-Jul-2017 08:03:59 UTC] WordPress database error Duplicate key name 'post_name' for query ALTER TABLE wp_posts ADD KEY post_name (post_name) made by wp_upgrade, make_db_current_silent, dbDelta
