@@ -2,6 +2,13 @@
 /*
     Template Name: Home Page
 */
+    $pre_launch_price   = get_post_meta(12, pre_launch_price, true);
+    $launch_price       = get_post_meta(12, launch_price, true);
+    $final_price        = get_post_meta(12, final_price, true);
+    $cource_url         = get_post_meta(12, cource_url, true);
+    $button_text        = get_post_meta(12, button_text, true);
+    $optin_text         = get_post_meta(12, optin_text, true);
+    $optin_button_text  = get_post_meta(12, optin_button_text, true);
 
 get_header(); ?>
 
@@ -15,26 +22,26 @@ get_header(); ?>
                     </div>
                     <!--col-->
                     <div class="col-sm-7 hero-text">
-                        <h1>Bootstrap To WordPress</h1>
-                        <p class="load">
-                            Earn And Ectra $1k - $5k a Month by Kearning to Code very own responsive &amp; custom worrdpress websites with bootstrap
+                        <h1><?php bloginfo('name'); ?></h1>
+                        <p class="lead">
+                            <?php bloginfo('description'); ?>
                         </p>
                         <div id="price-timeline">
                             <div class="price active">
                                 <h4>Pre-Launch Price <small>Ends Soon!</small></h4>
-                                <span>$149</span>
+                                <span><?php echo $pre_launch_price; ?></span>
                             </div>
                             <div class="price">
                                 <h4>Launch Price <small>Coming Soon!</small></h4>
-                                <span>$299</span>
+                                <span><?php echo $launch_price; ?></span>
                             </div>
                             <div class="price">
                                 <h4>Final Price <small>Coming Soon!</small></h4>
-                                <span>$399</span>
+                                <span><?php echo $final_price; ?></span>
                             </div>
                         </div>
                         <!--price-timeline-->
-                        <p><a href="" class="btn btn-lg btn-danger" href="/" role="button">Enroll &raquo;</a></p>
+                        <p><a class="btn btn-lg btn-danger" href="<?php echo $cource_url; ?>" role="button"><?php echo $button_text; ?></a></p>
                     </div>
                     <!--col-->
                 </div>
@@ -51,11 +58,11 @@ get_header(); ?>
         <div class="container">
             <div class="row">
                 <div class="col-sm-8">
-                    <p class="lead"><strong>Subscribe to our mailing list.</strong> We'll send something special as a thank you.</p>
+                    <p class="lead"><?php echo $optin_text; ?></p>
                 </div>
                 <div class="col-sm-4">
                     <button class="btn btn-success btn-ld btn-block" data-toggle="modal" data-target="#myModal">
-                        Click here to subscribe!
+                        <?php echo $optin_button_text; ?>
                     </button>
                 </div>
             </div>
