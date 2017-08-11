@@ -36,6 +36,21 @@
     
     $project_feature_title  = get_field('project_feature_title');
     $project_feature_body   = get_field('project_feature_body');
+    
+    // Advanced Custom Fields - Instructor section
+    
+    $instructor_section_title   = get_field('instructor_section_title');
+    $instructor_name            = get_field('instructor_name');
+    $short_bio                  = get_field('short_bio');
+    $full_bio                   = get_field('full_bio');
+    
+    $twitter_username       = get_field('twitter_username');
+    $facebook_username      = get_field('facebook_username');
+    $google_plus_username   = get_field('google_plus_username');
+    
+    $num_students  = get_field('num_students');
+    $num_reviews   = get_field('num_reviews');
+    $num_courses   = get_field('num_courses');
 
 get_header(); ?>
 
@@ -225,44 +240,48 @@ get_header(); ?>
                 <div class="col-sm-8 col-md-6">
                     <div class="row">
                         <div class="col-lg-8">
-                            <h2>Your instructor <small>Wasid Hossain</small></h2>
+                            <h2><?php echo $instructor_section_title ?> <small><?php echo $instructor_name ?></small></h2>
                         </div>
                         <div class="col-lg-4">
-                            <a href="#" class="badge social twitter" target="_blank"><i class="fa fa-twitter"></i></a>
-                            <a href="#" class="badge social facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-                            <a href="#" class="badge social gplus" target="_blank"><i class="fa fa-google-plus"></i></a>
+                            <?php if (!empty($twitter_username)) { ?>
+                                <a href="#<?php echo $twitter_username ?>" class="badge social twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                            <?php } ?>
+                        
+                            <?php if (!empty($facebook_username)) { ?>
+                                <a href="#<?php echo $facebook_username ?>" class="badge social facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <?php } ?>
+                            
+                            <?php if (!empty($google_plus_username)) { ?>
+                                <a href="#<?php echo $google_plus_username ?>" class="badge social gplus" target="_blank"><i class="fa fa-google-plus"></i></a>
+                            <?php } ?>
                         </div>
                         
                     </div>
                     <p class="lead">
-                            A highly skilled professional, Wasid Hossain is a passionate and experienced web designer, developer, blogger and digital entrepreneur.
-                        </p>
-                    <p>Hailing from North Of The Wall (Yellowknife, Canada), Wasid made the trek to the Wet Coast (Vancouver, Canada) to educate and equip himself with the necessary skills to become a spearhead in his trade of solving problems on the web, crafting design solutions, and speaking in code.</p>
-
-                    <p>Wasid's determination and love for what he does has landed him in some pretty interesting places with some neat people. He's had the privilege of working with, and providing solutions for, numerous businesses, big & small, across the Americas.</p>
-                    
-                    <p>Wasid builds custom websites, and provides design solutions for a wide-array of clientele at his company, Brightside Studios. He regularly blogs about passive income, living your life to the fullest, and provides premium quality web design tutorials and courses for tens of thousands of amazing people desiring to master their craft.</p>
+                        <?php echo $short_bio ?>
+                    </p>
+                    <?php echo $full_bio?>
                     <hr>
                     <h3>The Number's <small>They Don't Lie!</small></h3>
                     <div class="row">
                         <div class="col-xs-4">
                             <div class="num">
                                 <div class="num-content">
-                                    41,000+ <span>Students</span>
+                                    <?php echo $num_students ?> <span>Students</span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xs-4">
                             <div class="num">
                                 <div class="num-content">
-                                    1,000+ <span>Reviews</span>
+                                    <?php echo $num_reviews ?>+ <span>Reviews</span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xs-4">
                             <div class="num">
                                 <div class="num-content">
-                                    10+ <span>Courses</span>
+                                    <?php echo $num_courses ?>+ <span>Courses</span>
                                 </div>
                             </div>
                         </div>
