@@ -297,52 +297,31 @@ get_header(); ?>
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2">
-                    <h2>What people Saying about Wasid</h2>
-                    <div class="row testimonial">
-                        <div class="col-sm-4">
-                            <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/img/brennan.jpg" alt="Brennan">
-                        </div>
-                        <div class="col-sm-8">
-                                <blockquote>These videos are well created, concise, fast-paced, easy to follow, and just funny enough to keep you chuckling as you’re slamming out lines of code. I’ve taken 3 courses from this instructor. Whenever I have questions he is right there with a simple solution or a helpful suggestion to keep me going forward with the course work.
-
-                                    <cite>&mdash; Brennan, graduate of all of Wasid’s courses</cite>
-                                </blockquote>
-                        </div>
-                    </div>
-                    <div class="row testimonial">
-                        <div class="col-sm-4">
-                            <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/img/ernest.png" alt="Ernest">
-                        </div>
-                        <div class="col-sm-8">
-                                <blockquote>These videos are well created, concise, fast-paced, easy to follow, and just funny enough to keep you chuckling as you’re slamming out lines of code. I’ve taken 3 courses from this instructor. Whenever I have questions he is right there with a simple solution or a helpful suggestion to keep me going forward with the course work.
-
-                                    <cite>&mdash; Ernest, graduate of all of Wasid’s courses</cite>
-                                </blockquote>
-                        </div>
-                    </div>
-                    <div class="row testimonial">
-                        <div class="col-sm-4">
-                            <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/img/ben.png" alt="Ben">
-                        </div>
-                        <div class="col-sm-8">
-                                <blockquote>These videos are well created, concise, fast-paced, easy to follow, and just funny enough to keep you chuckling as you’re slamming out lines of code. I’ve taken 3 courses from this instructor. Whenever I have questions he is right there with a simple solution or a helpful suggestion to keep me going forward with the course work.
-
-                                    <cite>&mdash; Ben, graduate of all of Wasid’s courses</cite>
-                                </blockquote>
-                        </div>
-                    </div>
-                    <div class="row testimonial">
-                        <div class="col-sm-4">
-                            <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/img/aj.png" alt="AJ">
-                        </div>
-                        <div class="col-sm-8">
-                                <blockquote>These videos are well created, concise, fast-paced, easy to follow, and just funny enough to keep you chuckling as you’re slamming out lines of code. I’ve taken 3 courses from this instructor. Whenever I have questions he is right there with a simple solution or a helpful suggestion to keep me going forward with the course work.
-
-                                    <cite>&mdash; AJ, graduate of all of Wasid’s courses</cite>
-                                </blockquote>
-                        </div>
-                    </div>
                     
+                    <h2>What people Saying about Wasid</h2>
+                
+                    <?php $loop = new WP_Query( array( 'post_type' => 'testimonial', 'orderby' => 'post_id', 'order' => 'ASC'  )); ?>
+                    
+                    <?php while( $loop->have_posts() ) : $loop->the_post(); ?>
+            
+                    <div class="row testimonial">
+                        <div class="col-sm-4">
+                            <?php
+                                if (has_post_thumbnail()) {
+                                    the_post_thumbnail();
+                                }
+                            ?>
+                        </div>
+                        <div class="col-sm-8">
+                            <blockquote>
+                                <?php the_content(); ?>
+
+                                <cite>&mdash; <?php the_title(); ?></cite>
+                            </blockquote>
+                        </div>
+                    </div>
+
+                     <?php endwhile; ?>
                 </div>
             </div>
         </div>
