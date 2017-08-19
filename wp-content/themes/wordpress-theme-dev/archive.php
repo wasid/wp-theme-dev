@@ -9,19 +9,21 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
 
+		<section class="feature-image feature-image-default-alt" data-type="background" data-speed="2">
 		<?php
 		if ( have_posts() ) : ?>
+			<h1 class="page-title">
+					<?php the_archive_title(); ?> 
+				<small class="archive-description">
+					<?php the_archive_description();?>
+				</small>
+			</h1>
+		</section>
 
-			<header class="page-header">
-				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
-
+		<div class="container">
+            <div class="row" id="primary">
+                <main id="content" class="col-sm-8">
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
@@ -42,10 +44,13 @@ get_header(); ?>
 			get_template_part( 'template-parts/content', 'none' );
 
 		endif; ?>
+		        </main><!-- #main -->
+		        <aside class="col-sm-4">
+            		<?php get_sidebar(); ?>	
+            	</aside>
+            </div><!-- #primary -->
+        </div><!-- container -->
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();
