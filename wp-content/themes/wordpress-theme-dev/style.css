@@ -210,6 +210,10 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 	max-width: 100%;
 }
 
+.tag-cloud-link {
+     font-size: 100% !important;
+}
+
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
